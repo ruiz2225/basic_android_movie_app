@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movies App</string>
+    <string name="title_movies_trivia_question">Movies Trivia (%1$d/%2$d)</string>
+    <string name="btn_txt_send_answer">Responder</string>
+    <string name="txt_score">Puntaje: %1$d</string>
+    <string name="txt_congrats">Felicitaciones</string>
+    <string name="txt_final_score">Puntaje final</string>
+    <string name="btn_txt_play_again">Jugar nuevamente</string>
+</resources>
