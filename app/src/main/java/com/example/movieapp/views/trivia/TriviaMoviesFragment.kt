@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentTriviaMoviesBinding
@@ -18,8 +19,6 @@ import com.example.movieapp.databinding.FragmentTriviaMoviesBinding
  * create an instance of this fragment.
  */
 class TriviaMoviesFragment : Fragment() {
-
-
     data class Question(val image: Int, val question: String, val answers: List<String>, val correctOne: Int)
 
     private val questions: MutableList<Question> = mutableListOf(
@@ -35,9 +34,10 @@ class TriviaMoviesFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private var score = 0
     private val numQuestions = questions.size
     private lateinit var binding: FragmentTriviaMoviesBinding
+
+    private lateinit var viewModel: TriviaMoviesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +45,9 @@ class TriviaMoviesFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_trivia_movies, container, false)
+
+        viewModel = ViewModelProvider(this)[TriviaMoviesViewModel::class.java]
+
         randomizeQuestions()
         binding.game = this
         binding.btnSendAnswer.setOnClickListener {
@@ -75,12 +78,12 @@ class TriviaMoviesFragment : Fragment() {
         // Avanzamos a la siguiente pregunta
         if (questionIndex < numQuestions) {
             currentQuestion = questions[questionIndex]
-            if (correctOne) score+=5 else score-=3
+            if (correctOne) viewModel.onCorrect() else viewModel.onFailed()
             setQuestion()
             binding.invalidateAll()
         } else {
             // Al finalizar de responder todas las preguntas navegamos a ScoreFragment y enviamos el dato score a finalScore
-            val action = TriviaMoviesFragmentDirections.actionTriviaMoviesFragmentToScoreFragment(score.toString())
+            val action = TriviaMoviesFragmentDirections.actionTriviaMoviesFragmentToScoreFragment(viewModel.score.toString())
             view.findNavController().navigate(action)
         }
     }
@@ -95,7 +98,7 @@ class TriviaMoviesFragment : Fragment() {
         currentQuestion = questions[questionIndex]
         answers = currentQuestion.answers.toMutableList()
         binding.imgMovieQuestion.setImageResource(currentQuestion.image)
-        binding.txtScore.text = getString(R.string.txt_score, score)
+        binding.txtScore.text = getString(R.string.txt_score, viewModel.score)
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_movies_trivia_question, questionIndex + 1, numQuestions)
     }
 }
