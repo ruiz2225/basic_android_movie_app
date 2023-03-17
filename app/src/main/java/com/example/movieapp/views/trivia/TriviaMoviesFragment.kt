@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.movieapp.R
@@ -83,7 +84,7 @@ class TriviaMoviesFragment : Fragment() {
             binding.invalidateAll()
         } else {
             // Al finalizar de responder todas las preguntas navegamos a ScoreFragment y enviamos el dato score a finalScore
-            val action = TriviaMoviesFragmentDirections.actionTriviaMoviesFragmentToScoreFragment(viewModel.score.toString())
+            val action = TriviaMoviesFragmentDirections.actionTriviaMoviesFragmentToScoreFragment(viewModel.score.value.toString())
             view.findNavController().navigate(action)
         }
     }
@@ -98,7 +99,10 @@ class TriviaMoviesFragment : Fragment() {
         currentQuestion = questions[questionIndex]
         answers = currentQuestion.answers.toMutableList()
         binding.imgMovieQuestion.setImageResource(currentQuestion.image)
-        binding.txtScore.text = getString(R.string.txt_score, viewModel.score)
+        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+            binding.txtScore.text = getString(R.string.txt_score, newScore)
+        })
+
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_movies_trivia_question, questionIndex + 1, numQuestions)
     }
 }

@@ -1,22 +1,24 @@
 package com.example.movieapp.views.trivia
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class TriviaMoviesViewModel: ViewModel() {
 
-    var score = 0
+    val score = MutableLiveData<Int>()
 
     init {
+        score.value = 0
         Log.d("TriviaMoviesViewModel","ViewModel creado")
     }
 
     fun onCorrect(){
-        score += 5
+        score.value = score.value?.plus(5)
     }
 
     fun onFailed(){
-        score -= 3
+        score.value = score.value?.minus(3)
     }
 
     override fun onCleared() {
