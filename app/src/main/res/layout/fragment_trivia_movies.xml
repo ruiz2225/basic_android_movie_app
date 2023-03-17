@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="game"
-            type="com.example.movieapp.views.trivia.TriviaMoviesFragment" />
+            name="gameViewModel"
+            type="com.example.movieapp.views.trivia.TriviaMoviesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:id="@+id/imgMovieQuestion"
             android:layout_width="190dp"
             android:layout_height="260dp"
-            android:src="@drawable/placeholder"
+            app:imageResource="@{gameViewModel.currentQuestion.image}"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/txt_score"
+            android:text="@{@string/txt_score(gameViewModel.score)}"
             android:theme="@style/SemiBoldTextL"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{game.currentQuestion.question}"
+            android:text="@{gameViewModel.currentQuestion.question}"
             android:theme="@style/MediumTextM"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,28 +64,28 @@
                 android:id="@+id/answerOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{game.answers[0]}"
+                android:text="@{gameViewModel.currentQuestion.answers[0]}"
                 android:theme="@style/RegularTextS" />
 
             <RadioButton
                 android:id="@+id/answerTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{game.answers[1]}"
+                android:text="@{gameViewModel.currentQuestion.answers[1]}"
                 android:theme="@style/RegularTextS" />
 
             <RadioButton
                 android:id="@+id/answerThree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{game.answers[2]}"
+                android:text="@{gameViewModel.currentQuestion.answers[2]}"
                 android:theme="@style/RegularTextS" />
 
             <RadioButton
                 android:id="@+id/answerFour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{game.answers[3]}"
+                android:text="@{gameViewModel.currentQuestion.answers[3]}"
                 android:theme="@style/RegularTextS" />
         </RadioGroup>
 
