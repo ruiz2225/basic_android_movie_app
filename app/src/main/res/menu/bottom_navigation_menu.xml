@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/txt_home"/>
+    <item
+        android:id="@+id/triviaMoviesFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_trivia"
+        android:title="@string/txt_trivia"/>
+    <item
+        android:id="@+id/popularMoviesFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_popular"
+        android:title="@string/txt_popular"/>
+    <item
+        android:id="@+id/favoriteMoviesFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/txt_favorite"/>
+</menu>

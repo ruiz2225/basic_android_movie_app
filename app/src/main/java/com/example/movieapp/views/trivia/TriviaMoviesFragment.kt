@@ -31,6 +31,8 @@ class TriviaMoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_trivia_movies, container, false)
 
         viewModel = ViewModelProvider(this)[TriviaMoviesViewModel::class.java]
