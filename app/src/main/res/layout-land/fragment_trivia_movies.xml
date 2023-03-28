@@ -7,14 +7,14 @@
     <data>
         <variable
             name="gameViewModel"
-            type="com.example.movieapp.views.trivia.TriviaMoviesViewModel" />
+            type="com.example.movieapp.ui.trivia.TriviaMoviesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".views.trivia.TriviaMoviesFragment">
+        tools:context=".ui.trivia.TriviaMoviesFragment">
 
 
         <ImageView

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".views.favorite.FavoriteMoviesFragment">
+    tools:context=".ui.favorite.FavoriteMoviesFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"

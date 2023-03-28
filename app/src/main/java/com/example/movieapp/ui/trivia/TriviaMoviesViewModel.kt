@@ -1,4 +1,4 @@
-package com.example.movieapp.views.trivia
+package com.example.movieapp.ui.trivia
 
 import android.util.Log
 import androidx.lifecycle.LiveData

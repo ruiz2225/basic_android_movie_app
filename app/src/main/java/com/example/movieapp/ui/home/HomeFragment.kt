@@ -1,4 +1,4 @@
-package com.example.movieapp.views.home
+package com.example.movieapp.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

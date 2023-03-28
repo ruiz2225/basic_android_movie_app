@@ -7,16 +7,18 @@
 
     <fragment
         android:id="@+id/triviaMoviesFragment"
-        android:name="com.example.movieapp.views.trivia.TriviaMoviesFragment"
+        android:name="com.example.movieapp.ui.trivia.TriviaMoviesFragment"
         android:label="@string/title_movies_trivia_fragment"
         tools:layout="@layout/fragment_trivia_movies">
         <action
             android:id="@+id/action_triviaMoviesFragment_to_scoreFragment"
-            app:destination="@id/scoreFragment" />
+            app:destination="@id/scoreFragment"
+            app:popUpTo="@id/triviaMoviesFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
-        android:name="com.example.movieapp.views.score.ScoreFragment"
+        android:name="com.example.movieapp.ui.score.ScoreFragment"
         android:label="@string/title_score_fragment"
         tools:layout="@layout/fragment_score">
         <action
@@ -31,17 +33,44 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.movieapp.views.home.HomeFragment"
+        android:name="com.example.movieapp.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="com.example.movieapp.views.popular.PopularMoviesFragment"
+        android:name="com.example.movieapp.ui.popular.PopularMoviesFragment"
         android:label="@string/title_popular"
-        tools:layout="@layout/fragment_popular_movies" />
+        tools:layout="@layout/fragment_popular_movies" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment"
+            app:popUpTo="@id/popularMoviesFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteMoviesFragment"
-        android:name="com.example.movieapp.views.favorite.FavoriteMoviesFragment"
+        android:name="com.example.movieapp.ui.favorite.FavoriteMoviesFragment"
         android:label="@string/title_favorite"
         tools:layout="@layout/fragment_favorite_movies" />
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.movieapp.ui.popular.DetailMovieFragment"
+        android:label="DetailMovieFragment"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="backdropPath"
+            app:argType="string" />
+        <argument
+            android:name="voteAverage"
+            app:argType="string" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string" />
+        <argument
+            android:name="overview"
+            app:argType="string" />
+    </fragment>
 </navigation>

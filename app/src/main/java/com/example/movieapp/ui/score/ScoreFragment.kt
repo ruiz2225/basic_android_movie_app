@@ -1,4 +1,4 @@
-package com.example.movieapp.views.score
+package com.example.movieapp.ui.score
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
