@@ -3,6 +3,8 @@
 buildscript {
     ext{
         navigationVersion = "2.5.3"
+        retrofitVersion = "2.9.0"
+        glideVersion = "4.15.0"
     }
 
     dependencies {

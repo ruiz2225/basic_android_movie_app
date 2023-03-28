@@ -1,4 +1,4 @@
-package com.example.movieapp.data
+package com.example.movieapp.data.models.trivia
 
 data class Question(
     val image: Int,

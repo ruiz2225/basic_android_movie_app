@@ -67,4 +67,11 @@
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>
+
+    <style name="BackgroundTitleItemMovie">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:background">@color/dark_red_700</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
 </resources>

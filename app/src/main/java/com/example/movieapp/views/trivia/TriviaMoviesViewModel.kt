@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieapp.R
-import com.example.movieapp.data.Question
+import com.example.movieapp.data.models.trivia.Question
 
 class TriviaMoviesViewModel: ViewModel() {
 
