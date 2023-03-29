@@ -14,10 +14,14 @@
     <string name="txt_favorite">Favoritas</string>
     <string name="title_home">Inicio</string>
     <string name="title_popular">Películas populares</string>
+    <string name="title_detail_movie">Detalle</string>
     <string name="title_favorite">Mis favoritas</string>
     <string name="txt_description">Bienvenidos a Movies App, aplicación inspirada en temas sobre películas, su principal objetivo es dar a entender el funcionamiento básico de varios temas sobre el desarrollo en Android nativo. ¡Happy coding!</string>
     <string name="txt_popular_movies_list">Listado de películas populares del momento.</string>
     <string name="txt_favorite_movies_list">Listado de mis películas favoritas.</string>
     <string name="txt_movie_title">Título de la película</string>
     <string name="txt_overview">Resumen</string>
+    <string name="txt_chip_add_favorite">Agregar</string>
+    <string name="txt_chip_delete_favorite">Quitar</string>
+    <string name="txt_snack_add_ok">Se ha agregó a favoritos</string>
 </resources>

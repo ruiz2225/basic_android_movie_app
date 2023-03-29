@@ -51,11 +51,15 @@
         android:id="@+id/favoriteMoviesFragment"
         android:name="com.example.movieapp.ui.favorite.FavoriteMoviesFragment"
         android:label="@string/title_favorite"
-        tools:layout="@layout/fragment_favorite_movies" />
+        tools:layout="@layout/fragment_favorite_movies" >
+        <action
+            android:id="@+id/action_favoriteMoviesFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailMovieFragment"
         android:name="com.example.movieapp.ui.popular.DetailMovieFragment"
-        android:label="DetailMovieFragment"
+        android:label="@string/title_detail_movie"
         tools:layout="@layout/fragment_detail_movie">
         <argument
             android:name="title"
@@ -72,5 +76,11 @@
         <argument
             android:name="overview"
             app:argType="string" />
+        <argument
+            android:name="posterPath"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

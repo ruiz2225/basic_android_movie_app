@@ -13,6 +13,7 @@
             android:id="@+id/imgBackdropPath"
             android:layout_width="310dp"
             android:layout_height="200dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
@@ -70,6 +71,16 @@
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
                 app:chipIcon="@drawable/ic_calendar" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipFavorite"
+                style="@style/RegularTextS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/txt_chip_add_favorite"
+                app:chipIcon="@drawable/ic_favorite" />
         </LinearLayout>
 
         <TextView

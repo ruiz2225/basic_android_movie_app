@@ -11,12 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
 import com.example.movieapp.data.apiservice.NetworkClient
-import com.example.movieapp.data.models.movie.MovieResult
 import com.example.movieapp.data.models.movie.PopularMovie
 import com.example.movieapp.databinding.FragmentPopularMoviesBinding
 import com.example.movieapp.ui.adapters.MoviesAdapter
-import com.example.movieapp.ui.trivia.TriviaMoviesFragmentDirections
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 /**
@@ -41,14 +38,14 @@ class PopularMoviesFragment : Fragment() {
             navigateToDetail(it)
         }
 
-        binding.rvMovies?.adapter = moviesAdapter
+        binding.rvMovies.adapter = moviesAdapter
 
         lifecycleScope.launch {
             val apiKey = "d310854107d722075ebbcaa7a2dba0fb"
             val language = "en"
             val popularMovies = NetworkClient.service.getListPopularMovie(apiKey, language)
             moviesAdapter.popularMovies = popularMovies.results
-            binding.progressBar?.visibility = View.INVISIBLE
+            binding.progressBar.visibility = View.INVISIBLE
             moviesAdapter.notifyDataSetChanged()
         }
 
@@ -61,7 +58,9 @@ class PopularMoviesFragment : Fragment() {
             movie.backdrop_path,
             movie.vote_average.toString(),
             movie.release_date,
-            movie.overview)
+            movie.overview,
+            movie.poster_path,
+            movie.id)
         findNavController().navigate(action)
     }
 }
